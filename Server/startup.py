@@ -4,7 +4,8 @@ from fastapi import FastAPI
 from fastapi.security import HTTPBearer
 from fastapi.middleware.cors import CORSMiddleware
 ### AppCode Import ###
-from Server.Routes.BaseRoute import BaseRoute
+from Server.Routes.UserRoutes import userRoute
+from Server.Routes.BaseRoutes import baseRoute
 
 ###############################################################################
 
@@ -24,6 +25,8 @@ program.add_middleware(
 
 ###############################################################################
 
-program.include_router(BaseRoute)
+program.include_router(userRoute)
+program.include_router(baseRoute)
+
 
 os.system("pyclean . -q")
