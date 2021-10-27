@@ -4,7 +4,6 @@ from sqlalchemy.sql.sqltypes import Integer, String
 ### AppCode Import ###
 from Server.config.DBConfig import db_config
 from Server.Schema.UserSchema import UserSchemaDTO
-from Server.config.DBConfig import db_config
 
 ###############################################################################
 users = Table(

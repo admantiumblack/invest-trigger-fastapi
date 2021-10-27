@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 ### AppCode Import ###
 from Server.Routes.UserRoutes import userRoute
 from Server.Routes.BaseRoutes import baseRoute
+from Server.Routes.TriggerRoutes import triggerRoute
 
 ###############################################################################
 
@@ -27,6 +28,7 @@ program.add_middleware(
 
 program.include_router(userRoute)
 program.include_router(baseRoute)
+program.include_router(triggerRoute)
 
 
 os.system("pyclean . -q")
