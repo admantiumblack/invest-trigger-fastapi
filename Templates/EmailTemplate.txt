@@ -1,0 +1,6 @@
+Your Trigger
+has been triggered 
+
+TRIGGER DETAIL:
+${PAIR} - ${TIMEFRAME}
+${INDICATOR1} ${COMPARATOR} ${INDICATOR2}
