@@ -38,10 +38,10 @@ def compare(param1, comparator, param2, idx = 0, limit = 1):
         return param1[idx] <= param2[idx] and \
             not (param1[idx+1:idx+1+limit] <= param2[idx+1:idx+1+limit]).any()
 ###############################################################################
-def check_trigger():
+def check_trigger(timeframe):
     apiKey = os.environ.get('API_KEY')
     apiSecret = os.environ.get('API_SECRET')
-    res = get_all_triggers()
+    res = get_all_triggers(timeframe)
     indicatorRes = {}
     pairPrice = {}
     emailClient = EmailSender()

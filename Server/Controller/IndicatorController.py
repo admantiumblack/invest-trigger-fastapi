@@ -6,5 +6,6 @@ def moving_average(prices, period, limit):
     return res.iloc[-limit:].to_numpy()
 
 
-def exponential_moving_average(prices, period):
-    pass
+def exponential_moving_average(prices, period, limit):
+    res = pdt.ema(prices, period)
+    return res.iloc[-limit:].to_numpy

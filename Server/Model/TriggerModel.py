@@ -39,10 +39,11 @@ def insert_trigger(triggerDict):
     con = db_config.get_connection()
     con.execute(triggers.insert().values(**triggerDict))
 ##########################################################
-def get_all_triggers():
+def get_all_triggers(timeframe):
     con = db_config.get_connection()
     res = con.execute('''SELECT u.Email, ts.pair, ts.timeframe, 
     ts.indicator1, ts.indicatorVar1, ts.comparator, ts.indicator2, 
     ts.indicatorVar2 
-    FROM `TradeSignal` as ts JOIN `user` as u ON u.UserId = ts.userId;''').fetchall()
+    FROM `TradeSignal` as ts JOIN `user` as u ON u.UserId = ts.userId
+    WHERE ts.timeframe = ":timeframe";''', timeframe=timeframe).fetchall()
     return res

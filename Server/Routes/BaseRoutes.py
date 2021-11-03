@@ -6,5 +6,5 @@ baseRoute = APIRouter()
 ###############################################################################
 @baseRoute.get('/', status_code=201)
 def hello_world():
-    check_trigger()
+    # check_trigger('30m')
     return {'message':'hello world'}
