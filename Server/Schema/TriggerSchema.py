@@ -10,3 +10,6 @@ class TriggerSchemaDTO(BaseSchemaDTO):
     comparator:str = Field(alias='comparator')
     indicator2: Optional[str] = Field(alias='indicator2')
     indicatorVar2: Optional[int] = Field(alias='indicatorVar2')
+    
+class TriggerIdDTO(BaseSchemaDTO):
+    signalId: int = Field(alias='signalId')

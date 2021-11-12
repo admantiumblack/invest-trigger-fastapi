@@ -28,7 +28,7 @@ def get_triggers(request: Request):
             'indicatorVar1':i[5],
             'comparator': i[6],
             'indicator2': i[7],
-            'indivatorVar2': i[8]
+            'indicatorVar2': i[8]
         }
         triggerList.append(trigger)
     return triggerList
@@ -91,3 +91,4 @@ def insert_triggers(request:Request, trigger:TriggerSchemaDTO):
     except:
         return 'insert failed'
     return 'insert success'
+##############################################################################

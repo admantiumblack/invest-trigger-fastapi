@@ -2,7 +2,7 @@
 from fastapi import Response, Request
 from datetime import timedelta
 ### AppCode Import ###
-from Server.Schema.UserSchema import UserSchemaDTO
+from Server.Schema.UserSchema import UserSchemaDTO, UserRegisterSchemaDTO
 from Server.Model import UserModel as um
 
 
@@ -31,7 +31,7 @@ def check_email(email: str):
 
     return len(userResult) == 0
 ###############################################################################
-def register_user(request:Request, user:UserSchemaDTO):
+def register_user(request:Request, user:UserRegisterSchemaDTO):
     try:
         if request.cookies.get("Authorization") is not None:
             return 'user loggedin'
@@ -90,3 +90,12 @@ def user_logout(response:Response):
     except:
         return 'logout failed'
     return 'logout success'
+###############################################################################
+def get_user_profile(request:Request):
+    try:
+        res = um.get_user_profile(request.cookies.get('Authorization'))
+        if len(res) != 1:
+            return 'retrieval failed'
+        return res[0]
+    except Exception as e:
+        return 'user not available'

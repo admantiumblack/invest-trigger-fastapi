@@ -8,3 +8,9 @@ class UserSchemaDTO(BaseSchemaDTO):
     username: Optional[str] = Field(alias='username')
     email: Optional[str] = Field(alias='email')
     password: Optional[str] = Field(alias='password')
+
+class UserRegisterSchemaDTO(BaseSchemaDTO):
+    fullName: str = Field(alias='fullName')
+    username: str = Field(alias='username')
+    email: str = Field(alias='email')
+    password: str = Field(alias='password')

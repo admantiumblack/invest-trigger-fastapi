@@ -54,3 +54,8 @@ def get_email(email: str):
     conn = db_config.get_connection()
     userResult = conn.execute(users.select().where(users.c.Email == email)).fetchall()
     return userResult
+###############################################################################
+def get_user_profile(id:int):
+    conn = db_config.get_connection()
+    userResult = conn.execute(f'''SELECT u.FullName, u.Email FROM `user` as u WHERE u.UserId = {id};''').fetchall()
+    return userResult
